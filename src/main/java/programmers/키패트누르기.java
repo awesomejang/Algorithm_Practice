@@ -18,7 +18,7 @@ public class 키패트누르기 {
 		String answer = "";
 		for (int i = 0; i < numbers.length; i++) {
 			int target = numbers[i];
-			if (target == 1 || target == 4 || target == 7 ) {
+			if (target == 1 || target == 4 || target == 7) {
 				answer += "L";
 				left = target;
 			} else if (target == 3 || target == 6 || target == 9) {
