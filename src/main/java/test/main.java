@@ -2,13 +2,13 @@ package test;
 
 public class main {
 	public static void main(String[] args) {
-		String input1 = "Computercooler";
-		String input2 = "c";
-		int count = 0;
-		String[] arr = input1.toLowerCase().split("");
-		for(String st : arr) {
-			if(st.equals(input2)) count++;
+		String answer = "";
+		String str = "tEst";
+		for(char x : str.toCharArray()) {
+			if(Character.isLowerCase(x)) answer += Character.toUpperCase(x);
+			else answer += Character.toLowerCase(x);
+			
 		}
-		System.out.println(count);
+		System.out.println(answer);
 	}
 }
