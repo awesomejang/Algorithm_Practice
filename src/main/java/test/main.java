@@ -1,27 +1,23 @@
 package test;
 
+import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Set;
 
 public class main {
 	
-	public static String solution(String str){
-		String answer="";
-		int m=Integer.MIN_VALUE, pos;
-		while((pos=str.indexOf(' '))!=-1){
-			String tmp=str.substring(0, pos);
-			System.out.println(tmp);
-			int len=tmp.length();
-			if(len>m){
-				m=len;
-				answer=tmp;
-			}
-			str=str.substring(pos+1);
+	public static void solution(String str){
+		String answer = "";
+		for (int i = 0; i < str.length(); i++) {
+			//System.out.println(str.charAt(i) + " "+i + " " + str.indexOf(str.charAt(i)));
+			if(str.indexOf(str.charAt(i)) == i) answer += str.charAt(i);
 		}
-		if(str.length()>m) answer=str;
-		return answer;
+		
+		System.out.println(answer); 
+		
 	}
-	
+	char a;
 	public static void main(String[] args) {
-		System.out.println(2/2);
+		main.solution("kiakzxcvbzxcbvsw");
 	}
 }
