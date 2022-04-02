@@ -10,7 +10,7 @@ public class 숫자만추출 {
 	}
 	
 	public static int solution2(String s) {
-		String answer = "";
+		String answer = ""; 
 		
 		for(char x : s.toCharArray()) {
 			if(Character.isDigit(x)) answer += x; 
