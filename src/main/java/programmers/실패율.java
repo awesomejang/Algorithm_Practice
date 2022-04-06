@@ -15,16 +15,14 @@ public class 실패율 {
 			if (i == N + 1) {
 				continue;
 			}
-
 			stage[i]++;
-
 		}
 		System.out.println(stage[0]);
 		// 실패율을 계산해 담을 list
 		ArrayList<Double> fail = new ArrayList<Double>();
 
 		// 스테이지에 도달한 명수
-		double num = stages.length; //7
+		double num = stages.length; // 7
 		// 다음 스테이지로 올라갈때 줄어드는 사용자수를 계산하기 위해 사용
 		double tmp = 0;
 
@@ -38,7 +36,7 @@ public class 실패율 {
 				stage[i] = 0;
 
 			} else {
-				
+
 				stage[i] = stage[i] / num;
 
 				num = num - tmp; // 하위 스테이지 빼는 시점
@@ -51,11 +49,6 @@ public class 실패율 {
 
 		// fail 리스트를 내림차순으로 정렬해준다.
 		Collections.sort(fail, Collections.reverseOrder());
-		System.out.println(fail.get(0));
-		System.out.println(fail.get(1));
-		System.out.println(fail.get(2));
-		System.out.println(fail.get(3));
-		//System.out.println(fail.get(4));
 		// 정렬된 fail리스트 값과 stage값을 비교해서 같으면 stage의 인덱스번호(스테이지번호)를 가져옴으로써
 		// 실패율이 높은 순으로 answer배열에 넣어준다.
 		for (int i = 0; i < fail.size(); i++) {
@@ -80,7 +73,7 @@ public class 실패율 {
 		int[] stages = { 4, 4, 4, 4, 4 };
 		int[] r = 실패율.solution(N, stages);
 		for (int i : r) {
-			//System.out.println(i);
+			// System.out.println(i);
 		}
 	}
 }
