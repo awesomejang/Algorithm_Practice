@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class 문자거리 {
+public class 문자거리_ {
 	/**
 	 * 왼쪽부터 t일떄 0으로 초기화 하고 t가 나올때 까지 1씩 증가 시키면 왼쪽에있는 t와의 거리가 측정된다. 
 	 * 다시 오른쪽 부터 반복해서 이미 있는 값과 비교하여 더 작은값을 입력하면 최소의 거리가 나온다.
