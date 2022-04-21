@@ -4,6 +4,10 @@ import java.util.Stack;
 
 public class 쇠막대기 {
 	
+	// (()) 
+	// ) 일시 앞의 괄호를 확인하고 (라면 레이저 = 레이저 짝꿍 하나빼고 나머지 stack의 사이즈 만큼 추가 한다. 
+	// ))의 상황이면 한칸의 끝을 뜻하므로 stack에서 짝꿍 뺴고 자투리 +1 를 한다.
+	
 	public static int solution(String str) {
 		int cnt=0;
 		Stack<Character> stack=new Stack<>();
@@ -18,6 +22,7 @@ public class 쇠막대기 {
 		return cnt;
 	}
 	
+
 	public static int solution2(String str) {
 		int cnt = 0;
 		Stack<Character> stack = new Stack<Character>();
