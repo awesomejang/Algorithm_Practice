@@ -1,6 +1,8 @@
 package inflearn.자료구조;
 
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 
 
@@ -14,9 +16,6 @@ class Person{
 }
 
 public class 응급실 {
-	
-	
-	
 	public static int solution1(int n, int m, int[] arr) {
 		int answer=0;
 		Queue<Person> Q=new LinkedList<>();
@@ -40,39 +39,9 @@ public class 응급실 {
 		return answer;
 		
 	}
-	public static int solution2(int n, int m, int[] arr) {
-		int cnt = 0;
-		int target = 0;
-		Queue<Integer> Q = new LinkedList<Integer>();
-		for (int i = 0; i < arr.length; i++) {
-			if(i == m) target = arr[i];
-			Q.offer(arr[i]); 
-		}
-		
-		while(m >= cnt) {
-			int tmp = Q.poll();
-			System.out.println(tmp);
-			for(int x : Q) {
-				if(x > tmp) {
-					//System.out.println(tmp);
-					Q.offer(tmp);
-					tmp = -1;
-					break;
-				}
-			}
-			
-			if(tmp > 0) {
-				//System.out.println("in");
-				cnt++;
-				Q.poll();
-			}
-			
-		}
-		return cnt;
-	}
 	
 	public static void main(String[] args) {
 		int[] arr = {70,60,90,60,60,60};
-		System.out.println(응급실.solution2(6, 3, arr)); 
+		System.out.println(응급실.solution1(6, 3, arr)); 
 	}
 }
