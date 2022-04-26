@@ -12,10 +12,9 @@ public class 삽입정렬 {
 		for (int i = 0; i < n; i++) {
 			int tmp = arr[i], j;
 			for (j = i - 1; j >= 0; j--) {
-				if (arr[j] > tmp)
-					arr[j + 1] = arr[j]; // 한칸도 안움직임 = j = i-1, 움직였다 = j+1 앞이 i가 들어갈자리
-				else
-					break;
+				// 한칸도 안움직임 = j = i-1, 움직였다 = j+1 앞이 i가 들어갈자리
+				if (arr[j] > tmp) arr[j + 1] = arr[j]; 
+				else break;
 			}
 			arr[j + 1] = tmp;
 		}
