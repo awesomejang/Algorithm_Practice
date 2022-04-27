@@ -8,7 +8,6 @@ package inflearn.sorting;
  *
  */
 public class 버블정렬 {
-	
 	public static int[] solution(int n, int[] arr) {
 		for (int i = 0; i < n-1; i++) { // 마지막 꺼는 제외 가능 
 			for (int j = 0; j < n-i-1 ; j++) { // +1해야하니까 -1 i가 늘어나는 만큼 줄어준다.
