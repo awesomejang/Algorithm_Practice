@@ -18,6 +18,7 @@ public class 삽입정렬 {
 				if (arr[j] > tmp) arr[j + 1] = arr[j]; 
 				else break;
 			}
+			
 			arr[j + 1] = tmp;
 			for (int z = 0; z < arr.length; z++) {
 				System.out.println(arr[z]);

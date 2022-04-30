@@ -11,7 +11,7 @@ public class 선택정렬 {
 	 * @return
 	 */
 	public static int[] solution(int n, int[] arr) {
-		for (int i = 0; i < n - 1; i++) {
+		for (int i = 0; i < n-1; i++) {
 			int idx = i;
 			for (int j = i; j < n; j++) {
 				if (arr[idx] > arr[j]) {
