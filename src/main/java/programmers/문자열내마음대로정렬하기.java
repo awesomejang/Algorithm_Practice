@@ -3,50 +3,55 @@ package programmers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 public class 문자열내마음대로정렬하기 {
-	public static String[] solution(String[] strings, int n) {
-		int cnt = 0;
+	
+	public static String[] solution2(String[] strings, int n) {
 		String[] answer = new String[strings.length];
-		Character[] pivots = new Character[strings.length];
 		List<String> list = new ArrayList<String>();
-		List<String> list2 = new ArrayList<String>();
-		//Arrays.sort(strings);
-			
 		
 		for (int i = 0; i < strings.length; i++) {
-			 Character tmp = strings[i].charAt(n);
-			 pivots[i] = tmp;
+			list.add(strings[i].charAt(n) + strings[i]);
 		}
-		Arrays.sort(pivots);
 		
-		for (int i = 0; i < pivots.length; i++) {
-			char pivot = pivots[i];
-			List<String> tmp = new ArrayList<String>();
-			for (int j = 0; j < strings.length; j++) {
-				if(strings[j].contains(Character.toString(pivot)) && !list2.contains(strings[j])) {
-					tmp.add(strings[j]);
-				}
+		Collections.sort(list);
+		
+		for (int i = 0; i < list.size(); i++) {
+			answer[i] = list.get(i).substring(1); 
+		}
+		
+		return answer;
+	}
+	public static String[] solution(String[] strings, int n) {
+		// 아씹 
+		Arrays.sort(strings); 
+
+		
+		String[] answer = new String[strings.length];
+		for(int i = 0; i < strings.length; i++) {
+			answer[i] = strings[i].substring(n, n+1);  
+		}
+		
+		Arrays.sort(answer);
+		List<String> list = new ArrayList<>(Arrays.asList(strings));
+		
+		for(int i = 0; i < answer.length; i++) {
+			for(int j = 0; j < list.size(); j++) {
+				if(list.get(j).substring(n, n+1).equals(answer[i])) {
+					answer[i] = list.get(j); 
+					list.remove(list.get(j)); 
+					break; 
+				} 
 			}
-			Collections.sort(tmp);
-			for (int j = 0; j < tmp.size(); j++) {
-				list2.add(tmp.get(j));
-			}
 		}
-		
-		for (int z = 0; z < list2.size(); z++) {
-			answer[z] = list2.get(z);
-		}
-		
         return answer;
 	}
 	
 	public static void main(String[] args) {
 		String[] strings = {"sun", "bed", "car"};
 		String[] string = {"abce", "abcd", "cdx"};
-		String[] an = 문자열내마음대로정렬하기.solution(strings, 1);
+		String[] an = 문자열내마음대로정렬하기.solution2(strings, 1);
 		for(String i : an) {
 			System.out.println(i);
 		}

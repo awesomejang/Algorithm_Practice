@@ -16,7 +16,6 @@ class Point implements Comparable<Point> {
 	public int compareTo(Point o) {
 		if(this.x==o.x) return this.y-o.y;  // 무조건 음수가 되도록 설정한다.     
 		else return this.x-o.x;            // 오름차순 = 10,20,30 ... this.y - o.y(10-20)
-										  // 내림차순 = 30,20,10 ... O.y - this.y(this = 20, o = 10) = 10 - 20 
 	} 
 }
 public class 좌표정렬 {
