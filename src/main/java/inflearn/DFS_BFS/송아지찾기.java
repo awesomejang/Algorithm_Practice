@@ -13,13 +13,19 @@ public class 송아지찾기 {
 		arr[s] = 1;
 		
 		while(!Q.isEmpty()) {
-			int x = Q.poll();
-			if(x == t) return L;
-			for (int i = 0; i < moves.length; i++) {
-				int nx = x + moves[i];
-				if((nx>0 && nx< 10000) && arr[nx] == 0) {
-					arr[nx] = 1;
-					Q.offer(nx);
+			int len = Q.size();
+			for (int i = 0; i < len; i++) {
+				int x = Q.poll();
+				//if(x == t) return L;
+				for (int j = 0; j < moves.length; j++) {
+					int nx = x + moves[j];
+					if(nx == t) {
+						return L+1;
+					}
+					if((nx>0 && nx< 10000) && arr[nx] == 0) {
+						arr[nx] = 1;
+						Q.offer(nx);
+					}
 				}
 			}
 			L++;
