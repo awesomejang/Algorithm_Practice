@@ -7,17 +7,9 @@ public class 경로탐색_DFS {
 	static int[][] graph;
 	static int[] ch;
 	
-	public static void print(int[] arr) {
-		for(int i : arr) {
-			System.out.print(i);
-		}
-		System.out.println();
-	}
-	
 	public void DFS(int v){
 		if(v == n) {
 			answer++;
-			print(ch);
 		}
 		else {
 			for (int i = 1; i <= n; i++) {
