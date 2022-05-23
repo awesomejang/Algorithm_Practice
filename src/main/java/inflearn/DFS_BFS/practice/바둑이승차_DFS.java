@@ -17,7 +17,7 @@ public class 바둑이승차_DFS {
 	}
 	public static void main(String[] args) {
 		n = 5; 
-		int[] arr = new int[n]; // 배열
+		int[] arr = new int[n];
 		arr[0] = 81;
 		arr[1] = 58;
 		arr[2] = 42;
