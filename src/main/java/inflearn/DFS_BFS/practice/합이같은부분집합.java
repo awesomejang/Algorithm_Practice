@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class 합이같은부분집합 {
 	static String answer = "NO";
-	static int n, total = 0;; // 총 개수
+	static int n, total = 0; // 총 개수
 	boolean flag = false;
 	
 	public void DFS(int L, int sum, int[] arr) {  //sum을 파라미터로 받도록 하여 누적되지않도록
