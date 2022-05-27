@@ -2,7 +2,6 @@ package programmers.level1;
 
 public class 자연수뒤집어배열로만들기 {
 	public static int[] solution(long n) {
-		
 		String str = String.valueOf(n);
         int[] answer = new int[str.length()];
         int i = 0;
@@ -11,7 +10,6 @@ public class 자연수뒤집어배열로만들기 {
         	n /= 10;
         	i++;
         }
-        
         return answer;
     }
 	
