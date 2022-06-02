@@ -1,7 +1,9 @@
 package inflearn.to;
 
 public class 최대매출 {
-	// n일간 매출기록, k = k일간의 연속매출, arr = 매출 array
+	// n일간 매출기록 
+	// k = k일간의 연속매출 
+	// arr = 매출 array
 	// k일간의 최대매출기록은? 
 	public static int solution(int n, int k, int[] arr) {
 		int answer = 0;
