@@ -10,8 +10,8 @@ public class 조합수_메모이제이션 {
 	// 메모이제이션을 위한 배열 33까지 입력값을 받기 때문에 넉넉하게 35 
 	int[][] dy = new int[35][35];
 	public int DFS(int n, int r) {
-		if(dy[n][r] > 0) return dy[n][r];
-		if(n == r || r == 0) {
+		if(dy[n][r] > 0) return dy[n][r]; // 메모이제이션해서 값이 >0 -> 이전에 똑같은조합이 돈적이있다. 그렇다면 기록이 되어있으니 해당 좌표 값을 리턴
+		if(n == r || r == 0) { // 말단에 도달했다. -> 한가지 경우의 수를 가진다.
 			return 1;
 		}else {
 			return dy[n][r] = DFS(n-1, r-1) + DFS(n-1, r);
