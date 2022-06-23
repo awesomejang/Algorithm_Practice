@@ -1,38 +1,27 @@
 package programmers.level2;
 
 public class 문자열압축 {
-	public static void main(String[] args) {
-		//https://yline.tistory.com/166?category=511149
-		String target = "aabbaccc";
-		int answer = target.length();
-		
-		int len = target.length() / 2;
-		for (int i = 1; i <= len; i++) {
+	public int solution(String s) {
+		int answer = s.length();
+        for (int i = 1; i <= s.length()/2; i++) {
 			int count = 1;
-			String temp = target.substring(0, i);
+			String temp = s.substring(0, i); // 초기화
 			String answer2 = "";
-			for (int j = i; j <= target.length(); j+=i) {
-				int endIndex = (target.length() > j+i) ? j+i : target.length();
-				String front = target.substring(j, endIndex);
-				
-				if(temp.equals(front)) {
-					count++;
-				}else {
-					if(count >=2) {
-						answer2 += (count + temp);
-					}
-					else {
-						answer2 += temp;
-					}
+			for (int j = i; j <= s.length(); j+=i) {
+				String next = s.substring(j, (s.length() > j+i) ? j+i : s.length()); // 길이 넘어가면 마지막까지
+				if(temp.equals(next)) count++;
+				else { // 같지 않으면 현재 텍스트 입력하고 temp 변경
+					answer2 += (count >= 2) ? (count + temp) : temp;
 					count = 1;
-					temp = front;
+					temp = next; // 마지막껀 안들어간다.
 				}
-				System.out.println(answer2);
 			}
-			/////////////
-			answer2 += temp;
+			answer2 += temp;// 마지막 요소는 입력이안되기때문에 여기서 입력처리
 			answer = Math.min(answer, answer2.length());
 		}
-		System.out.println(answer);
+        return answer;
+	}
+	public static void main(String[] args) {
+		
 	}
 }
