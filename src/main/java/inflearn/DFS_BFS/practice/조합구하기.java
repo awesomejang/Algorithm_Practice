@@ -19,7 +19,6 @@ public class 조합구하기 {
 			for (int i = s; i <=n; i++) {
 				combi[L] = i;
 				DFS(L+1, i+1); // s=2 i =2,3,4 i로 해보자
-				
 			}
 		}
 	}
