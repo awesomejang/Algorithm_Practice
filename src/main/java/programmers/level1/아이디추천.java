@@ -1,53 +1,95 @@
 package programmers.level1;
 
-public class 아이디추천 {
-
-	public static String solution(String new_id) {
-		//1단계
-		String step1 = new_id.toLowerCase();
-		//2단계
-		StringBuffer sb = new StringBuffer();
-		String str = "-_.";
-		for (int i = 0; i < step1.length(); i++) {
-			char ch = step1.charAt(i);
-			if(!Character.isAlphabetic(ch) && !Character.isDigit(ch) && !str.contains(String.valueOf(ch))) continue;
-			sb.append(ch);
-		}
-		
-		//3단계
-		String step3 = sb.toString();
-		while(step3.contains("..")) {
-			step3 = step3.replace("..", ".");
-		}
-		
-		//4단계
-		String step4 = step3;
-		if(step4.charAt(0) == '.') {
-			step4 = step4.substring(1);
-		}
-		
-		if(!step4.isEmpty() && step4.charAt(step4.length()-1) == '.') {
-			step4 = step4.substring(0, step4.length()-1);
-		}
-		
+class CreateNewId {
+	private String new_id;
 	
-		// 5단계
-		String step5 = step4;
-		if(step5.isEmpty()) step5 = "a";
+	public CreateNewId(String new_id) {
+		this.new_id = new_id;
+	}
+	
+	public String getResult() {
+		return this.new_id;
+	}
+	
+	//1
+	public CreateNewId lowerCase() {
+		new_id = new_id.toLowerCase();
+		return this;
+	}
+	//2 
+	public CreateNewId filter() {
+		String str = "-_.";
+		StringBuffer sb = new StringBuffer();
 		
-		// 6단계
-		String step6 = step5;
-		if(step6.length() > 15) {
-			step6 = step6.substring(0, 15);
-			if(step6.lastIndexOf(".") == step6.length()-1) step6 = step6.substring(0, step6.length()-1);
-		}
-		//7단계
-		String step7 = step6;
-		while(step7.length() < 3) {
-			step7 += step7.charAt(step7.length()-1);
-		}
+		for (int i = 0; i < new_id.length(); i++) {
+   			char ch = new_id.charAt(i);
+   			if(!Character.isAlphabetic(ch) && !Character.isDigit(ch) && !str.contains(String.valueOf(ch))) {
+   				continue;
+   			}
+   			sb.append(ch);
+   		}
+		new_id = sb.toString();
+		return this;
+	}
+
+	//3
+	public CreateNewId removeDots() {
+   		while(new_id.contains("..")) {
+   			new_id = new_id.replace("..", ".");
+   		}
+   		return this;
+	}
+	
+	//4
+	public CreateNewId subDot() {
+		if(new_id.charAt(0) == '.') {
+			new_id = new_id.substring(1);
+   		}
+   		
+   		if(!new_id.isEmpty() && new_id.charAt(new_id.length()-1) == '.') {
+   			new_id = new_id.substring(0, new_id.length()-1);
+   		}
+   		return this;
+	}
+	//5
+	public CreateNewId plusStr() {
+   		if(new_id.isEmpty()) new_id = "a";
+   		return this;
+	}
+	
+	//6
+	public CreateNewId subStr() {
+   		if(new_id.length() > 15) {
+   			new_id = new_id.substring(0, 15);
+   			if(new_id.lastIndexOf(".") == new_id.length()-1) {
+   				new_id = new_id.substring(0, new_id.length()-1);
+   			}
+   		}
+   		return this;
+	}
+	
+	public CreateNewId fillStr() {
+		while(new_id.length() < 3) {
+			new_id += new_id.charAt(new_id.length()-1);
+   		}
+		return this;
+	}
+	
+}
+public class 아이디추천 {
+	public static String solution(String new_id) {
+		String answer = new CreateNewId(new_id)
+				           .lowerCase()
+				           .filter()
+				           .removeDots()
+				           .subDot()
+				           .plusStr()
+				           .subStr()
+				           .fillStr()
+				           .getResult();
+		return answer;
+				
 		
-		return step7;
 	}
 
 	public static void main(String[] args) {
