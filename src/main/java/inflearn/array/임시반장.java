@@ -1,31 +1,36 @@
 package inflearn.array;
 
+import java.util.Scanner;
+
 public class 임시반장 {
 	public static int solution(int n, int[][] arr) {
-		// 5학년 고정
-		int target = -1;
-		int answer = -1;
-		for (int i = 0; i < n; i++) {
-			int count=0;
-			for (int j = 0; j < n; j++) {
-				for (int k = 0; k < 5; k++) {
+		int answer = 0, max = Integer.MIN_VALUE;
+		for (int i = 1; i <= n; i++) { // 비교대상
+			int cnt = 0; // 개수 초기화
+			for (int j = 1; j <=n; j++) { // 반복비교대상
+				for (int k = 1; k <= 5; k++) {
 					if(arr[i][k] == arr[j][k]) {
-						count++;
-						break;
-						//한번이라도 라서 같으면 
+						cnt++;
+						break; // 한번이라도 같은반이면 더이상 비교필요없다.
 					}
 				}
 			}
-			if(count > target) { 
-				target = count;
+			if(cnt > max) { 
+				max = cnt;
 				answer = i;
 			}
 		}
-		System.out.println(answer);
-		return answer +1;
+		return answer;
 	}
 	public static void main(String[] args) {
-		int[][] arr = {{2, 3,1, 7, 3}, {4, 1, 9, 6, 8}, {5, 5, 2, 4, 4}, {6, 5, 2, 6, 7}, {8, 4, 2, 2, 2}};
-		임시반장.solution(5, arr);
+		Scanner kb = new Scanner(System.in);
+		int n = kb.nextInt();
+		int[][] arr = new int[n+1][6]; // 사람만 변경되고 학년은 고정 
+		for (int i = 1; i <=n; i++) {
+			for (int j = 1; j <=5; j++) {
+				arr[i][j] = kb.nextInt();
+			}
+		}
+		System.out.println(임시반장.solution(n, arr)); 
 	}
 }

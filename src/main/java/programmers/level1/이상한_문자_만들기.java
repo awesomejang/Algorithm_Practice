@@ -1,15 +1,17 @@
 package programmers.level1;
 
-import java.util.Iterator;
-
 public class 이상한_문자_만들기 {
 	public static String solution(String s) {
 		String answer = "";
 		char[] chars = s.toCharArray();
 		int idx = 0;
-		for (int i = 0; i < chars.length; i++) {
-			idx = chars[i] == ' ' ? 0 : idx + 1;
-			answer += (idx % 2) != 0 ? Character.toUpperCase(chars[i]) : Character.toLowerCase(chars[i]);
+		for (int i = 0; i < chars.length; i++) {			
+			if(chars[i] == ' ') {
+				idx = 0;
+				answer += chars[i];
+			}else {
+				answer += idx++ % 2 == 0 ? Character.toUpperCase(chars[i]) : Character.toLowerCase(chars[i]);
+			}	
 		}
 		/**
         String[] strings = s.split(" ");
